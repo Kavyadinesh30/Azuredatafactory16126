@@ -1,0 +1,32 @@
+{
+	"name": "SorceCSV",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SinkLinked1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Country.csv",
+				"fileSystem": "demodcont15126"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "CountryCode",
+				"type": "String"
+			},
+			{
+				"name": "Countryname",
+				"type": "String"
+			}
+		]
+	}
+}
