@@ -1,0 +1,29 @@
+{
+	"name": "Json4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Country.json",
+				"fileSystem": "targetcont16126"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"CountryCode": {
+					"type": "string"
+				},
+				"Countryname": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
