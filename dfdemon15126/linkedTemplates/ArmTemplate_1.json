@@ -417,7 +417,7 @@
 									},
 									"userProperties": [],
 									"typeProperties": {
-										"variableName": "value2",
+										"variableName": "value4",
 										"value": {
 											"value": "@activity('Get Metadata1').output.exists",
 											"type": "Expression"
@@ -427,20 +427,20 @@
 							],
 							"ifTrueActivities": [
 								{
-									"name": "Set variable1",
-									"type": "SetVariable",
+									"name": "Execute Pipeline1",
+									"type": "ExecutePipeline",
 									"dependsOn": [],
 									"policy": {
-										"secureOutput": false,
 										"secureInput": false
 									},
 									"userProperties": [],
 									"typeProperties": {
-										"variableName": "value1",
-										"value": {
-											"value": "@activity('Get Metadata1').output.exists",
-											"type": "Expression"
-										}
+										"pipeline": {
+											"referenceName": "DemonPipeline1",
+											"type": "PipelineReference"
+										},
+										"waitOnCompletion": true,
+										"parameters": {}
 									}
 								}
 							]
@@ -456,11 +456,19 @@
 					},
 					"value2": {
 						"type": "String"
+					},
+					"value3": {
+						"type": "Boolean"
+					},
+					"value4": {
+						"type": "Boolean"
 					}
 				},
 				"annotations": []
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/DemonPipeline1')]"
+			]
 		}
 	]
 }
